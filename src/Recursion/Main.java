@@ -1,10 +1,9 @@
 package Recursion;
 
 public class Main {
-    public static void findPath (char[][] field, int x0, int y0) {
-        int n = 10;
-        char[][] memory = new char[n][n];
-        char[][] path = new char[n][n];
+    public static void findPath (char[][] field, int x0, int y0, char[][] memory) {
+
+        char[][] path = new char[field.length][field[0].length];
         int x = x0;
         int y = y0;
         while (x != 0 || y != 0){
@@ -21,11 +20,10 @@ public class Main {
                 x -= 1;
             }
         }
-
-        for (int i = 0; i < n; i++){
-            for (int j = 0; j < n; j++){
+        for (int i = 0; i < field.length; i++){
+            for (int j = 0; j < field[0].length; j++){
                 if (i == 0 && j == 0){
-                    System.out.print(path[0][0] = 'Щ');
+                    System.out.print((path[0][0] = 'Щ') + " ");
                 } else if (j == x0 && i == y0){
                     System.out.print((path[i][j] = 'Ч') + " ");
                 } else if (path[i][j] == 'X'){
@@ -35,7 +33,6 @@ public class Main {
             }
             System.out.println();
         }
-
     }
 
     public static char whereFrom (char[][] field, int x, int y, char[][] memory) {
@@ -72,6 +69,9 @@ public class Main {
 
     public static void main(String[] args) {
 
+        int n = 10;
+        char[][] memory = new char[n][n];
+
         char[][] field = new char[][]{
                 new char[]{'-', '-', '-', '*', '*', '-', '-', '-', '-', '-',},
                 new char[]{'-', '-', '-', '-', '*', '-', '*', '*', '-', '-',},
@@ -85,6 +85,6 @@ public class Main {
                 new char[]{'-', '-', '-', '-', '-', '*', '*', '-', '-', '-',}
         };
 
-        findPath(field, 8, 3);
+        findPath(field, 8, 3, memory);
     }
 }
