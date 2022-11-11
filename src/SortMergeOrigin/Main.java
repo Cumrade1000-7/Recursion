@@ -19,8 +19,8 @@ public class Main {
         int[] arrLeft = Arrays.copyOfRange(arr, 0, arr.length / 2);
         int[] arrRight = Arrays.copyOfRange(arr, arr.length / 2, arr.length);
 
-        mergeSort(arrLeft);
-        mergeSort(arrRight);
+        arrLeft = mergeSort(arrLeft);
+        arrRight = mergeSort(arrRight);
 
         return merge(arrLeft, arrRight);
     }
@@ -56,6 +56,7 @@ public class Main {
                 new int[]{51, 30, 10, 9, 8, 7, 6, 5, 2, 1, 60}};
 
         //System.out.println(Arrays.toString(nationalTeam(regionalTeams)));
+
         System.out.println(Arrays.toString(mergeSort(regionalTeams[2])));
     }
 }
